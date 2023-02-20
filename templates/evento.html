@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Base de Dados Associação de Estudantes</h1>
+{% endblock %}
+
+{% block content %}
+  <h2><a href="/eventos">Evento:</a> {{ evento.NomeE }}</h2>
+  <p>
+    <b>Id do evento: </b>{{ evento.IdE }}
+  </p>
+  <p>
+    <b>Nome:</b> {{ evento.NomeE }}
+  </p>
+  <p>
+    <b>Inicio:</b> {{ evento.Inicio }}
+  </p>
+  <p>
+    <b>Fim:</b> {{ evento.Fim }}
+  </p>
+  <p>
+    <b>Departamento organizador:</b> <a href="/departamentos/{{ evento.IdD}}">{{ evento.NomeD }}</a>
+  </p>
+  <p>
+    <b>Descrição do evento:</b> {{ evento.Descricao }}
+  </p>
+
+  {% if oradores %}
+  <p>
+    <b>Oradores: </b><ul>
+      {% for o  in oradores %}      
+        <li>{{ o.Nome }}</li>
+      {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+
+  <p>
+    <a href="/publicacoes/{{ evento.IdE }}"><b>Publicação associada</b></a>
+  </p>
+{% endblock %}

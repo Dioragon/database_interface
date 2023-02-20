@@ -1,0 +1,24 @@
+INTERFACE BASE DE DADOS ASSOCIAÇÃO DE ESTUDANTES
+
+SOBRE
+Esta aplicação web ilustra o uso da base de dados associacao_estudantes.
+
+ALGUMAS ESTATÍSTICAS DA BASE DE DADOS
+Items		Counts
+Departamentos	4
+Membros		20
+Reuniões	5
+Eventos		4
+
+FUNCIONALIDADE DE AMOSTRA
+Departamentos
+  Listar todos
+  Obter info do departamento:
+  Id do departamento: [obter]
+  Procura por título: [procurar]
+
+Membros
+  Listar todos
+  Obter info do membro:
+  Id do membro: [obter]
+  Procura por nome: [procurar]

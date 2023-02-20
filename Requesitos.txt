@@ -1,0 +1,12 @@
++++DESCRIÇÃO DOS REQUESITOS+++
+UNIVERSO - ASSOCIAÇÃO DE ESTUDANTES
+
+Cada estudante é membro de um ou dois departamentos;
+Cada departamento tem um presidente;
+Um estudante não pode presidir mais que um departamento;
+Cada departamento reune periodicamente os seus membros;
+O departamento Administrativo pode convocar reuniões gerais;
+Os departamentos Pedagógico e Recreativo organizam eventos pedagógicos e recreativos respetivamente;
+O departamento de Comunicação publicita os eventos criados pelos outros departamentos;
+Cada evento tem a sua respetiva publicação;
+Alguns estudantes podem sermentores de outros estudantes;

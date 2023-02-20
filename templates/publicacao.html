@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Base de Dados Associação de Estudantes</h1>
+{% endblock %}
+
+{% block content %}
+  <h2><a href="/publicacoes">Publicação</a> do evento: <a href="/eventos/{{ publicacao.Evento }}">{{ publicacao.Nome }}</a></h2>
+  <p>
+    <b>Imagem da publicação:</b> {{ publicacao.Imagem }}
+  </p>
+  <p>
+    <b>Descrição da publicação:</b> {{ publicacao.DescricaoP }}
+  </p>
+  <p>
+    <b>Data da publicação:</b> {{ publicacao.Data }}
+  </p>
+  <p>
+    Criada pelo Departamento <a href="/departamentos/{{ divulgacao.Id }}">Divulgacao</a>
+  </p>
+{% endblock %}

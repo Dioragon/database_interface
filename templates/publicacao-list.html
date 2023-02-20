@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Base de Dados Associação de Estudantes{% endblock %}</h1>
+<h2>Publicações</h2>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Evento</b></th>
+    <th><b>Data de publicação</b></th>
+  </tr>
+
+  {% for p in publicacoes %}
+    <tr>
+      <td><a href="/publicacoes/{{ p.Evento }}">{{ p.Nome }}</a></td>
+      <td>{{ p.Data }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,58 @@
+/*
+Base de Dados 2021
+Diogo Oliveira Ribeiro 201707434
+
+BD para associação de estudantes.
+Modelo entidade-relacionamento.
+*/
+
+ESTUDANTE(
+   _Id_,
+   Nome,
+   Sexo,
+   Nascimento,
+   .Idade.,
+   Adesão,
+   Curso(Nome,Ano),
+   Telemóvel
+)
+
+DEPARTAMENTO(
+   _Id_,
+   Nome
+)
+
+EVENTO(
+   _Id_,
+   Nome,
+   Início,
+   Fim,
+   Descrição,
+   Local,
+   {Orador}
+)
+
+REUNIÃO(
+   _Id_,
+   Geral?,
+   {Assunto},
+   Início,
+   Fim,
+   {Conclusões}
+)
+
+ESTUDANTE =M= <MEMBRO_DE> =N= DEPARTAMENTO
+
+ESTUDANTE -1- <PRESIDE(Mandato)> =1= DEPARTAMENTO
+
+DEPARTAMENTO =1= <CONVOCA> =N= REUNIÃO
+
+REUNIÃO =1= <REUNE> -N- ESTUDANTE
+
+DEPARTAMENTO -1- <ORGANIZA> =N= EVENTO
+
+DEPARTAMENTO -1- <CRIA_PUBLICAÇÃO> =N= PUBLICAÇÃO
+
+EVENTO = <<PUBLICITADO_POR>> PUBLICAÇÃO(Imagem,Descrição,Data)
+
+ESTUDANTE -1- <MENTOR_DE> -N- ESTUDANTE

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Base de Dados Associação de Estudantes{% endblock %}</h1>
+<h2>Departamentos</h2>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Nome</b></th>
+    <th><b>Membros</b></th>
+    <th><b>Presidente</b></th>
+  </tr>
+   
+  {% for d in departamentos %}
+    <tr>
+      <td><a href="/departamentos/{{ d.IdD }}">{{ d.NomeD }}</a></td>
+      <td>{{ d.Membros }}</td>
+      <td><a href="/estudantes/{{ d.Presidente }}">{{ d.NomeP }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

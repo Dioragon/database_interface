@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Base de Dados Associação de Estudantes</h1>
+{% endblock %}
+
+{% block content %}
+  {% if reuniao.Geral == 'S' %}
+  <h2><a href="/reunioes">Reunião</a> nº {{ reuniao.IdR }} (Geral)</h2>
+  {% endif %}
+  {% if reuniao.Geral == 'N' %}
+  <h2><a href="/reunioes">Reunião</a> nº {{ reuniao.IdR }}</h2>
+  {% endif %}
+  <p>
+      <b>Convocada por:</b> <a href="/departamentos/{{ reuniao.IdD }}">{{ reuniao.Nome }}</a>
+  </p>
+  <p>
+      <b>Início:</b> {{ reuniao.Inicio }}
+  </p>
+  <p>
+      <b>Fim:</b> {{ reuniao.Fim }}
+  </p>
+  <p>
+    <b>Assuntos:</b><ul>
+      {% for a in assuntos %}
+        <li>{{ a.Assunto }}</li>
+      {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Conclusões:</b><ul>
+      {% for c in conclusoes %}
+        <li>{{ c.Conclusao }}</li>
+      {% endfor %}
+    </ul>
+  </p>
+  <p>
+    <b>Participantes:</b><ul>
+      {% for p in participantes %}
+        <li><a href="/estudantes/{{ p.Id }}">{{ p.Nome }}</a></li>
+      {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

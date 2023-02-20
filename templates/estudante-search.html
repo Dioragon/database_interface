@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Base de Dados Associação de Estudantes{% endblock %}</h1>
+<h2>Resultados da pesquisa para {{ search.expr }}</h2>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Nome</b></th>
+    <th><b>Curso</b></th>
+    <th><b>Adesão</b></th>
+  </tr>
+   
+  {% for e in estudantes %}
+    <tr>
+      <td><a href="/estudantes/{{ e.Id }}">{{ e.Nome }}</a></td>
+      <td>{{ e.CursoNome }}</td>
+      <td>{{ e.DataAdesao }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

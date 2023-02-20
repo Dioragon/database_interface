@@ -1,0 +1,87 @@
+/*
+Base de Dados 2021
+Diogo Oliveira Ribeiro 201707434
+
+BD para associação de estudantes.
+Modelo relacional.
+*/
+
+table ESTUDANTE(
+   _Id_ int,
+   Nome varchar,
+   Sexo enum,
+   Nascimento date,
+   Adesao datetime,
+   CursoNome varchar,
+   CursoAno int,
+   Telemovel int,
+   Mentor int --> ESTUDANTE.Id
+)
+
+table DEPARTAMENTO(
+   Id int,
+   Nome varchar
+)
+
+table EVENTO(
+   Id int,
+   Nome varchar,
+   Inicio datetime,
+   Fim datetime,
+   Descricao text,
+   Local varchar
+)
+
+table REUNIAO(
+   Id int,
+   Geral enum,
+   Inicio datetime,
+   Fim datetime
+)
+
+table PUBLICACAO(
+   Evento int --> EVENTO.Id,
+   Imagem varchar,
+   Descricao text
+)
+
+table MEMBRO(
+   Estudante int --> ESTUDANTE.Id,
+   Departamento int --> DEPARTAMENTO.Id
+)
+
+table PRESIDENTE(
+   Presidente int --> ESTUDANTE.Id,
+   Departamento int --> DEPARTAMENTO.Id,
+   Mandato int
+)
+
+table ORGANIZADOR(
+   Evento int --> EVENTO.Id,
+   Departamento --> DEPARTAMENTO.Id
+)
+
+table ORADOR(
+   Evento int --> EVENTO.Id,
+   Nome varchar
+)
+
+table CONVOCADOR(
+   Reuniao int --> REUNIAO.Id,
+   Departamento int --> DEPARTAMENTO.Id
+)
+
+table REUNIDOS(
+   Reuniao int --> REUNIAO.Id,
+   Participante int --> ESTUDANTE.Id
+)
+
+table ASSUNTO(
+   Reuniao int --> REUNIAO.Id,
+   Assunto varchar
+)
+
+table CONCLUSOES(
+   Reuniao int --> REUNIAO.Id,
+   Conclusao varchar
+)

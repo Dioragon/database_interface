@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Base de Dados Associação de Estudantes{% endblock %}</h1>
+  <h2>Eventos</h2>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Nome</b></th>
+    <th><b>Data</b></th>
+    <th><b>Organizador</b></th>
+  </tr>
+   
+  {% for e in eventos %}
+    <tr>
+      <td><a href="/eventos/{{ e.IdE }}">{{ e.NomeE }}</a></td>
+      <td>{{ e.Inicio }}</td>
+      <td><a href="/departamentos/{{ e.IdD }}">{{ e.NomeD }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

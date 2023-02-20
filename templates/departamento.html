@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Base de Dados Associação de Estudantes</h1>
+{% endblock %}
+
+{% block content %}
+  <h2><a href="/departamentos">Departamento:</a> {{ departamento.Nome }}</h2>
+  <p>
+    <b>Id do departamento: </b>{{ departamento.Id }}
+  </p>
+  <p>
+    <b>Nome: </b>{{ departamento.Nome }}
+  </p>
+  <p>
+    <b>{{ nm.N }} Membros:</b><ul>
+      {% for m in membros %}
+        <li><a href="/estudantes/{{ m.Id }}">{{ m.Nome }}</a>
+        {% if m.Nome == presidente.Nome %}
+        (Presidente)
+        {% endif %}</li>
+      {% endfor %}
+    </ul>
+  </p>
+
+  {% if eventos %}
+  <p>
+    <b>{{ ne.N }} Eventos organizados:</b><ul>
+      {% for e in eventos %}
+        <li><a href="/eventos/{{ e.Id }}">{{ e.Nome }}</a></li>
+      {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+
+  {% if publicacoes %}
+  <p>
+    <b>{{ np.N }} Publicações criadas:</b><ul>
+      {% for p in publicacoes %}
+        <li><a href="/publicacoes/{{ p.Evento }}">{{ p.Nome }}</a></li>
+      {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+{% endblock %}
